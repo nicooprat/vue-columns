@@ -1,4 +1,4 @@
-<img src="./packages/docs/src/.vuepress/public/vue-columns.svg" alt="logo" width="128">
+<img src="../docs/src/.vuepress/public/vue-columns.svg" alt="logo" width="128">
 
 # vue-columns
 
@@ -16,7 +16,7 @@ Vue renderless functional component to dispatch children items in columns
 </template>
 
 <script>
-import { Columns } from 'vue-columns'
+import { Columns } from '../../vue-mention/src/Columns.vue'
 
 export default {
   components: {

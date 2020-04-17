@@ -9,14 +9,14 @@ module.exports = {
     }],
   ],
   themeConfig: {
-    logo: '/vue-mention.svg',
-    repo: 'Akryum/vue-mention',
+    logo: '/vue-columns.svg',
+    repo: 'nicooprat/vue-columns',
     docsDir: 'packages/docs',
     locales: {
       '/': {
         lang: 'en-US',
-        title: 'vue-mention',
-        description: 'Mention for Vue.js',
+        title: 'vue-columns',
+        description: 'Vue renderless functional component to dispatch children items in columns',
       },
     },
     editLinks: true,

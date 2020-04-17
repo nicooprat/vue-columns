@@ -1,22 +1,21 @@
 {
-  "name": "vue-mention",
-  "description": "Mention popper for input and textarea",
-  "version": "0.1.5",
+  "name": "vue-columns",
+  "description": "Vue renderless functional component to dispatch children items in columns",
+  "version": "0.0.1",
   "author": {
-    "name": "Guillaume Chau",
-    "email": "guillaume.b.chau@gmail.com"
+    "name": "Nico Prat",
+    "email": "nicooprat@gmail.com"
   },
   "keywords": [
     "vue",
     "vuejs",
     "plugin",
-    "mention",
-    "popper"
+    "columns"
   ],
   "license": "MIT",
-  "main": "dist/vue-mention.umd.js",
-  "module": "dist/vue-mention.esm.js",
-  "unpkg": "dist/vue-mention.min.js",
+  "main": "dist/vue-columns.umd.js",
+  "module": "dist/vue-columns.esm.js",
+  "unpkg": "dist/vue-columns.min.js",
   "scripts": {
     "build": "NODE_ENV=production npm run build:browser && npm run build:es && npm run build:umd",
     "build:browser": "rollup --config build/rollup.config.browser.js",
@@ -29,21 +28,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Akryum/vue-mention.git",
-    "directory": "packages/vue-mention"
+    "url": "git+https://github.com/nicooprat/vue-columns.git",
+    "directory": "packages/vue-columns"
   },
   "bugs": {
-    "url": "https://github.com/Akryum/vue-mention/issues"
+    "url": "https://github.com/nicooprat/vue-columns/issues"
   },
-  "homepage": "https://github.com/Akryum/vue-mention#readme",
+  "homepage": "https://github.com/nicooprat/vue-columns#readme",
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "textarea-caret": "^3.1.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "v-tooltip": "^2.0.0",
     "vue": "^2.6.0"
   },
   "devDependencies": {
@@ -77,6 +73,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 10"
   ]
 }

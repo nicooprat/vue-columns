@@ -1,15 +1,12 @@
 {
-  "name": "vue-mention-docs",
-  "version": "0.1.5",
+  "name": "vue-columns-docs",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
-  "dependencies": {
-    "v-tooltip": "^2.0.3",
-    "vue-mention": "^0.1.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "vuepress": "^1.4.1"
   }

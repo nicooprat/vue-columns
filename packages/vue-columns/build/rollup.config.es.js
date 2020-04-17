@@ -2,8 +2,8 @@ import base from './rollup.config.base'
 
 const config = Object.assign({}, base, {
   output: {
-    name: 'vue-mention',
-    file: 'dist/vue-mention.esm.js',
+    name: 'vue-columns',
+    file: 'dist/vue-columns.esm.js',
     format: 'es',
     sourcemap: process.env.NODE_ENV === 'production',
   },

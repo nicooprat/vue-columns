@@ -1,12 +1,12 @@
-import Mentionable from './Mentionable.vue'
+import Columns from './Columns.vue'
 
 export {
-  Mentionable,
+  Columns,
 }
 
 function registerComponents (Vue, prefix) {
-  Vue.component(`${prefix}mentionable`, Mentionable)
-  Vue.component(`${prefix}Mentionable`, Mentionable)
+  Vue.component(`${prefix}columns`, Columns)
+  Vue.component(`${prefix}Columns`, Columns)
 }
 
 const plugin = {
