@@ -6,7 +6,9 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue-mq": "^1.0.1"
+  },
   "devDependencies": {
     "vuepress": "^1.4.1"
   }

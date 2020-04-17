@@ -1,5 +1,5 @@
 <template>
-  <Columns :columns="3" class="parent">
+  <Columns :columns="$mq | mq({ sm: 1, md: 2, lg: 3 })" class="parent">
     <div
       v-for="item in items"
       :key="item" v-text="item"

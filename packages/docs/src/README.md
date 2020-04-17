@@ -18,11 +18,38 @@ footer: MIT Licensed | Copyright © 2020-present Nico Prat
 
 ## Demo
 
-<Demo />
+<GettingStartedDemo />
 
 ```vue
 <template>
   <Columns :columns="3">
+    <div v-for="item in items" :key="item" v-text="item" />
+  </Columns>
+</template>
+
+<script>
+import { Columns } from 'vue-columns'
+
+export default {
+  components: {
+    Columns,
+  },
+  data () {
+    return {
+      items: [...Array(12)].map((v, i) => i + 1),
+    }
+  },
+}
+</script>
+```
+
+## Responsive
+
+<ResponsiveDemo />
+
+```vue
+<template>
+  <Columns :columns="$mq | mq({ sm: 1, md: 2, lg: 3 })">
     <div v-for="item in items" :key="item" v-text="item" />
   </Columns>
 </template>
