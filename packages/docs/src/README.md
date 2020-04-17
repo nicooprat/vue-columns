@@ -18,12 +18,12 @@ footer: MIT Licensed | Copyright © 2020-present Nico Prat
 
 ## Demo
 
-<GettingStartedDemo />
+Just import the renderless component, wrap your items with it and set a columns count.
 
 ```vue
 <template>
   <Columns :columns="3">
-    <div v-for="item in items" :key="item" v-text="item" />
+    <div v-for="item in 12" :key="item" v-text="item" />
   </Columns>
 </template>
 
@@ -34,23 +34,20 @@ export default {
   components: {
     Columns,
   },
-  data () {
-    return {
-      items: [...Array(12)].map((v, i) => i + 1),
-    }
-  },
 }
 </script>
 ```
 
+<GettingStartedDemo />
+
 ## Responsive
 
-<ResponsiveDemo />
+Use any solution **you** like, here's an example with [`vue-mq`](https://github.com/AlexandreBonaventure/vue-mq).
 
 ```vue
 <template>
   <Columns :columns="$mq | mq({ sm: 1, md: 2, lg: 3 })">
-    <div v-for="item in items" :key="item" v-text="item" />
+    <div v-for="item in 12" :key="item" v-text="item" />
   </Columns>
 </template>
 
@@ -61,11 +58,7 @@ export default {
   components: {
     Columns,
   },
-  data () {
-    return {
-      items: [...Array(12)].map((v, i) => i + 1),
-    }
-  },
 }
 </script>
 ```
+<ResponsiveDemo />

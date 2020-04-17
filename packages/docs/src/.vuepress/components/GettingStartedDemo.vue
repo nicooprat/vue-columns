@@ -1,7 +1,7 @@
 <template>
   <Columns :columns="3" class="parent">
     <div
-      v-for="item in items"
+      v-for="item in 12"
       :key="item" v-text="item"
       class="child"
       :class="item % 2 === 0 ? 'odd' : 'even'"
@@ -16,11 +16,6 @@ import Columns from '../../../../../packages/vue-columns/src/Columns'
 export default {
   components: {
     Columns,
-  },
-  data () {
-    return {
-      items: [...Array(12)].map((v, i) => i + 1),
-    }
   },
 }
 </script>
