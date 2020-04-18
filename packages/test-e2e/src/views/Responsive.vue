@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Demo from '../../../docs/src/.vuepress/components/GettingStartedDemo'
+import Demo from '../../../docs/src/.vuepress/components/ResponsiveDemo'
 
 export default {
   components: {

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from './views/Home.vue'
 import Defaults from './views/Defaults.vue'
+import Responsive from './views/Responsive.vue'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,10 @@ const routes = [
   {
     path: '/defaults',
     component: Defaults,
+  },
+  {
+    path: '/responsive',
+    component: Responsive,
   },
 ]
 
