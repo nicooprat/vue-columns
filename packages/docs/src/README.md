@@ -42,7 +42,7 @@ export default {
 
 ## Responsive
 
-Use any solution **you** like, here's an example with [`vue-mq`](https://github.com/AlexandreBonaventure/vue-mq).
+Use any solution you like, here's an example with [`vue-mq`](https://github.com/AlexandreBonaventure/vue-mq).
 
 ```vue
 <template>
