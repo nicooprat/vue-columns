@@ -15,6 +15,22 @@ features:
 footer: MIT Licensed | Copyright © 2020-present Nico Prat
 ---
 
+This component makes it easy to get a **Masonry-like** layout. Its approach is **very basic**, as it just dispatches each item column by column **instead of relying on complex algorythms** that calculate each item height and display them with absolute positions.
+
+### Pros
+
+* As a functional component, its performance impact will be as low as possible
+* There is no calculation involved so it will behave consistenly
+* It does not depend on element heights so it doesn't have to wait for its children to be mounted
+* As it doesn't rely on absolute positioning, any child height change works as expected
+
+### Cons
+
+* Tab key will follow column by column instead of row by row because it respects the HTML order
+* It does not guarantee that the elements are positioned according to their real height
+* It does not guarantee that all columns will have almost the same height
+
+Use it if you have a simple use case where children element will likely have almost the same height or if the children visual order is not crucial.
 
 ## Demo
 
