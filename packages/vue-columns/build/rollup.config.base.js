@@ -28,7 +28,7 @@ export default {
     }),
     css({
       output: styles => {
-        // fs.writeFileSync('dist/vue-mention.css', new CleanCSS().minify(styles).styles)
+        // fs.writeFileSync('dist/vue-columns.css', new CleanCSS().minify(styles).styles)
       },
     }),
     babel({

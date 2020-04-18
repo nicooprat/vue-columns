@@ -16,7 +16,7 @@ Vue renderless functional component to dispatch children items in columns
 </template>
 
 <script>
-import { Columns } from '../../vue-mention/src/Columns.vue'
+import { Columns } from 'vue-columns'
 
 export default {
   components: {

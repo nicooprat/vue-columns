@@ -21,11 +21,11 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
-    
+
     - name: Yarn cache
       uses: actions/cache@v1
       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
@@ -34,7 +34,7 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    
+
     - name: Dependencies cache
       uses: actions/cache@v1
       with:
@@ -42,25 +42,25 @@ jobs:
           node_modules
           */*/node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-    
+
     - name: Cypress cache
       uses: actions/cache@v1
       with:
         path: /home/runner/.cache/Cypress
         key: ${{ runner.os }}-Cypress-v1
-    
+
     - name: Install
       run: yarn --frozen-lockfile
 
     # Runs a single command using the runners shell
     - name: Lint
       run: |
-        cd packages/vue-mention
+        cd packages/vue-columns
         yarn run lint
-    
-    - name: Build vue-mention
+
+    - name: Build vue-columns
       run: |
-        cd packages/vue-mention
+        cd packages/vue-columns
         yarn run build
 
     # Runs a set of commands using the runners shell
