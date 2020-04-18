@@ -1,100 +1,29 @@
-describe('with default props', () => {
-  it('shows suggestions', () => {
+const { $, _ } = Cypress
+
+describe('defaults behavior with 3 columns', () => {
+  beforeEach(() => {
     cy.visit('/defaults')
-    cy.get('.input').type('abc')
-    cy.get('.popover').should('not.exist')
-    cy.get('.input').type(' @')
-    cy.get('.popover').should('be.visible')
-      .should('contain', 'akryum')
-      .should('contain', 'posva')
-      .should('contain', 'atinux')
   })
 
-  it('hides menu on blur', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.preview').click()
-    cy.get('.popover').should('not.be.visible')
+  it('creates right amount of columns', () => {
+    cy.get('.parent').should('exist').should('have.length', 1)
+    cy.get('.parent > *').should('exist').should('have.length', 3)
   })
 
-  it('hides menu on space character', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.input').type(' ')
-    cy.get('.popover').should('not.be.visible')
+  it('dispatches children evenly', () => {
+    cy.get('.child').should('have.length', 12)
+    const texts = ["1", "4", "7", "10", "2", "5", "8", "11", "3", "6", "9", "12"]
+    cy.get('.child').then(($children) => {
+      _.each($children.get(), (child, i) => {
+        expect($(child).text()).to.eq(texts[i])
+      })
+    })
   })
 
-  it('inserts suggestion on click', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.mention-item').eq(0).click()
-    cy.get('.preview').should('contain', '@akryum')
-  })
-
-  it('inserts suggestion on enter', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.input').type('{enter}')
-    cy.get('.preview').should('contain', '@akryum')
-  })
-
-  // https://github.com/cypress-io/cypress/issues/311
-  // it('insert suggestion on tab', () => {
-  //   cy.visit('/defaults')
-  //   cy.get('.input').type('@')
-  //   cy.get('.popover').should('be.visible')
-  //   cy.get('.input').tab()
-  //   cy.get('.preview').should('contain', '@akryum')
-  // })
-
-  it('selects another suggestion with key down', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.input').type('{downarrow}{downarrow}{enter}')
-    cy.get('.preview').should('contain', '@atinux')
-  })
-
-  it('loops key down', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.input').type('{downarrow}{downarrow}{downarrow}{enter}')
-    cy.get('.preview').should('contain', '@akryum')
-  })
-
-  it('loops key up', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@')
-    cy.get('.popover').should('be.visible')
-    cy.get('.input').type('{uparrow}{enter}')
-    cy.get('.preview').should('contain', '@atinux')
-  })
-
-  it('searches through suggestions', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@pos')
-    cy.get('.popover').should('be.visible')
-    cy.get('.mention-item').should('have.length', 1)
-      .should('contain', 'posva')
-    cy.get('.input').type('{enter}')
-    cy.get('.preview').should('contain', '@posva')
-  })
-
-  it('searches with no result', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@zzz')
-    cy.get('.popover').should('be.visible')
-      .should('contain', 'No result')
-  })
-
-  it('does not insert a space after mention', () => {
-    cy.visit('/defaults')
-    cy.get('.input').type('@{enter}abc')
-    cy.get('.preview').should('contain', '@akryumabc')
+  it('has equal columns widths', () => {
+    cy.get('.parent > *').then(($columns) => {
+      const widths = _.map($columns.get(), (column, i) => $(column).width())
+      expect(_.uniq(widths).length).to.eq(1)
+    })
   })
 })

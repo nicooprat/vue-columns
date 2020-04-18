@@ -1,49 +1,49 @@
+<template>
+  <Columns :columns="3" class="parent">
+    <div
+      v-for="item in 12"
+      :key="item" v-text="item"
+      class="child"
+      :class="item % 2 === 0 ? 'odd' : 'even'"
+      :style="`height: ${1 + Math.random() * 2}em`"
+    />
+  </Columns>
+</template>
+
 <script>
+import Columns from '../../../vue-columns/src/Columns'
+
 export default {
-  data () {
-    return {
-      text: '',
-      items: [
-        {
-          value: 'akryum',
-          firstName: 'Guillaume',
-        },
-        {
-          value: 'posva',
-          firstName: 'Eduardo',
-        },
-        {
-          value: 'atinux',
-          firstName: 'Sébastien',
-        },
-      ],
-    }
+  components: {
+    Columns,
   },
 }
 </script>
 
-<template>
-  <div
-    class="demo"
-  >
-    <Mentionable
-      :keys="['@']"
-      :items="items"
-      popover-class="defaults-mention"
-    >
-      <textarea
-        v-model="text"
-        rows="6"
-        class="input"
-      />
-    </Mentionable>
+<style scoped>
+.parent {
+  margin-left: -.25em;
+  margin-right: -.25em;
+  font-size: 2em;
+}
 
-    <div class="preview">{{ text }}</div>
-  </div>
-</template>
+.child {
+  border: .25em solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1em;
+  border-radius: .5em;
+}
 
-<style>
-.defaults-mention .mention-selected {
-  background: #aaffc7;
+.child.odd {
+  background-color: #293849;
+}
+
+.child.even {
+  background-color: #32a56d;
 }
 </style>
