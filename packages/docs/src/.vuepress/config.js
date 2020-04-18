@@ -9,6 +9,7 @@ module.exports = {
     }],
   ],
   themeConfig: {
+    search: false,
     logo: '/vue-columns.svg',
     repo: 'nicooprat/vue-columns',
     docsDir: 'packages/docs',
