@@ -30,3 +30,7 @@ export default {
 }
 </script>
 ```
+
+## Thanks & credits
+
+This repo is based on @Akryum https://github.com/Akryum/vue-mention.
