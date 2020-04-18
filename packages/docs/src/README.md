@@ -77,34 +77,4 @@ export default {
 }
 </script>
 ```
-
 <ResponsiveDemo />
-
-## Customize rendering
-
-Customize which HTML tags are rendered with the `tags` prop and what width to apply to each column with the `width` callback.
-
-```vue
-<template>
-  <Columns
-    :columns="3"
-    tags="ul>li"
-    :width="({ current, total }) => current === 1 ? '50%' : '25%'"
-    class="parent"
-  >
-    <div v-for="item in 12" :key="item" v-text="item" />
-  </Columns>
-</template>
-
-<script>
-import { Columns } from 'vue-columns'
-
-export default {
-  components: {
-    Columns,
-  },
-}
-</script>
-```
-
-<CustomizeRenderingDemo />
