@@ -1,7 +1,7 @@
 {
   "name": "vue-columns",
   "description": "Vue renderless functional component to dispatch children items in columns",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Nico Prat",
     "email": "nicooprat@gmail.com"
@@ -38,7 +38,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "peerDependencies": {
     "vue": "^2.6.0"
   },
