@@ -41,7 +41,9 @@ jobs:
         key: ${{ runner.os }}-Cypress-v1
 
     - name: Install
-      run: npm ci
+      run: |
+        cd packages/vue-columns
+        npm ci
 
     # Runs a single command using the runners shell
     - name: Lint
