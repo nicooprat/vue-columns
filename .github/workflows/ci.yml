@@ -60,6 +60,7 @@ jobs:
     - name: E2E tests
       run: |
         cd packages/test-e2e
+        npm ci
         npm run test:e2e:run
 
     - uses: actions/upload-artifact@v1
