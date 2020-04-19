@@ -22,26 +22,17 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-
-    - name: Yarn cache
+    - name: Cache node modules
       uses: actions/cache@v1
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      env:
+        cache-name: cache-node-modules
       with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
-          ${{ runner.os }}-yarn-
-
-    - name: Dependencies cache
-      uses: actions/cache@v1
-      with:
-        path: |
-          node_modules
-          */*/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
 
     - name: Cypress cache
       uses: actions/cache@v1
@@ -50,24 +41,24 @@ jobs:
         key: ${{ runner.os }}-Cypress-v1
 
     - name: Install
-      run: yarn --frozen-lockfile
+      run: npm ci
 
     # Runs a single command using the runners shell
     - name: Lint
       run: |
         cd packages/vue-columns
-        yarn run lint
+        npm run lint
 
     - name: Build vue-columns
       run: |
         cd packages/vue-columns
-        yarn run build
+        npm run build
 
     # Runs a set of commands using the runners shell
     - name: E2E tests
       run: |
         cd packages/test-e2e
-        yarn run test:e2e:run
+        npm run test:e2e:run
 
     - uses: actions/upload-artifact@v1
       with:
